@@ -1,87 +1,62 @@
-# Byte-compiled / optimized / DLL files
+# -------------------------
+# Python
+# -------------------------
 __pycache__/
 *.py[cod]
 *$py.class
 
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Virtual environments
+# Virtual Environments
 .venv/
-env/
 venv/
 ENV/
-env.bak/
-venv.bak/
+env/
+.conda/
 
-# VS Code settings
-.vscode/
+# Distribution / Packaging
+build/
+dist/
+*.egg-info/
+*.egg
 
-# Jupyter Notebook checkpoints
+# -------------------------
+# Jupyter Notebooks
+# -------------------------
 .ipynb_checkpoints/
-
-# Jupyter runtime files
+*.ipynb_save
 *.ipynb_checkpoints
-*.nbconvert.ipynb
 
-# Pytest cache
-.pytest_cache/
+# -------------------------
+# Streamlit
+# -------------------------
+.streamlit/
+.streamlit_cache/
+.streamlit/secrets.toml
+logs/
+.cache/
 
-# mypy cache
-.mypy_cache/
-
-# pip logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-
-# IPython
-profile_default/
-ipython_config.py
-
-# Jupyter Notebook and Lab files
-*.ipynb
-
-# Other
-.DS_Store
-Thumbs.db
-
-# Logs and databases
-*.log
+# -------------------------
+# Data / Models (optional, keep if you want versioned datasets/models)
+# -------------------------
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.parquet
+*.h5
+*.pkl
+*.joblib
+*.db
 *.sqlite3
 
-# Spyder project settings
-.spyderproject
-.spyproject
+# Large model outputs
+*.pt
+*.pth
+*.onnx
+*.hdf5
+*.sav
 
-# pyenv
-.python-version
+# -------------------------
+# OS Specific
+# -------------------------
+.DS_Store
+Thumbs.db

@@ -1,3 +1,33 @@
+# Application Structure
+
+## backend.py
+This module contains all core data processing and machine learning logic, including:
+- Data loading and preprocessing
+- Feature scaling
+- Model training (Logistic Regression, KNN, Decision Tree, Random Forest, SVM, Naive Bayes, XGBoost)
+- Model evaluation (confusion matrix, accuracy, sensitivity, specificity)
+- Hyperparameter tuning for XGBoost
+
+## app.py
+This is a Streamlit dashboard that:
+- Loads and preprocesses the data using `backend.py`
+- Splits and scales the data
+- Trains all models using `backend.py`
+- Displays confusion matrices and metrics for each model
+- Credits the Kaggle dataset
+
+## How to Run the Streamlit App
+1. Install dependencies (in your virtual environment):
+	```bash
+	pip install -r requirements.txt
+	```
+2. Launch the Streamlit app:
+	```bash
+	streamlit run app.py
+	```
+3. Open the provided local URL in your browser to interact with the dashboard.
+
+The app will automatically use the data in `assets/data.csv` and display results for all models.
 # Pancreatic Cancer Detection
 
 This project aims to detect pancreatic cancer using urinary biomarkers and various machine learning models. The dataset used is publicly available on Kaggle.
