@@ -36,6 +36,9 @@ from sklearn.metrics import make_scorer, accuracy_score, recall_score, precision
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from sklearn.preprocessing import StandardScaler
 
+# Set higher DPI for better plot quality
+plt.rcParams["figure.dpi"] = 150
+
 def load_data(file_path):
     """
     Load dataset from a CSV file.
@@ -47,7 +50,7 @@ def load_data(file_path):
     except Exception as e:
         print(f"Error loading data: {e}")
         return None
-    
+
 def preprocess_data(data, target_column):
     """
     Preprocess the dataset by handling missing values and encoding categorical variables.
@@ -59,15 +62,15 @@ def preprocess_data(data, target_column):
     # Numerize categorical variables
     data['diagnosis'] = data['diagnosis'].replace({1: 0, 2: 1, 3: 1})
     data['sex'] = data['sex'].replace({"M": 0, "F": 1})
-    
+
     # Separate features and target variable
     X = data.drop(columns=[target_column])
     y = data[target_column]
-    
+
     return X, y
 
 def scale_features(X_train, X_test):
-    
+
     numeric_cols_to_scale = ["creatinine", "age", "LYVE1", "REG1B", "TFF1"]
     scaler = StandardScaler()
     X_train[numeric_cols_to_scale] = scaler.fit_transform(X_train[numeric_cols_to_scale])
@@ -79,7 +82,7 @@ def evaluate_classification_model(y_target, y_predicted):
     cm = confusion_matrix(y_target, y_predicted)
 
     # Visualize the confusion matrix and store the plot in a variable
-    fig, ax = plt.subplots(figsize=(6, 4))
+    fig, ax = plt.subplots(figsize=(3, 2))
     sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax)
     ax.set_xlabel('Predicted Label')
     ax.set_ylabel('True Label')
@@ -128,7 +131,7 @@ def hyperparameter_tuning_xgboost(X_train, y_train):
     }
 
     random_search_xgb = RandomizedSearchCV(
-        estimator=xgb_base_model, 
+        estimator=xgb_base_model,
         param_distributions=param_dist_xgb,
         n_iter=500,
         scoring=scorers,
@@ -140,7 +143,7 @@ def hyperparameter_tuning_xgboost(X_train, y_train):
     )
 
     random_search_xgb.fit(X_train, y_train)
-    
+
     return random_search_xgb
 
 def train_models(X_train, y_train):
